@@ -9,7 +9,7 @@ end
 class CreateDatabase
   # Используемые модели
   MODELS = [Terminal, CheckInDesk, Company, Flight, 
-    CheckInDeskFlight, FlightTerminal, FlightStatus, User]
+    CheckInDeskFlight, FlightTerminal, FlightStatus, User, Staff]
   CREATE_OK = 1 + MODELS.size
 
   def initialize()
@@ -28,22 +28,24 @@ class CreateDatabase
 
   # Создание пустой БД
   def create_db()
-    begin
+    #begin
       @db_empty.do("CREATE DATABASE aero WITH ENCODING 'UTF8'")
-      return 1
-    rescue DBI::ProgrammingError => e
-      return 0
-    end
+    #  return 1
+    #rescue DBI::ProgrammingError => e
+    #  return 0
+    #end
+    1
   end
 
   # Удаление БД
   def drop_db()
-    begin
+    #begin
       @db_empty.do("DROP DATABASE aero")
-      return 1
-    rescue DBI::ProgrammingError => e
-      return 0
-    end
+    #  return 1
+    #rescue DBI::ProgrammingError => e
+    #  return 0
+    #end
+    1
   end
 
   # См. константу MODELS

@@ -18,10 +18,12 @@ CREATE TABLE users(
   end
 
   def User.check_user(connection, login, password)
+    STDERR.puts login, password
     id = connection.select_one("
 SELECT id FROM users WHERE login = ? and password = ?
       ", login, password)
-    return (id.size > 0)
+    #STDERR.puts connection.inspect
+    return (!id.nil? && id.size > 0)
   end
 
   def User.create_admin(connection)

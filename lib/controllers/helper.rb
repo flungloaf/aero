@@ -75,4 +75,19 @@ def checkindesks_puts(selected)
       end.join("\n") + 
       "</select>"
   end
+  
+  def post_select(name, selected = true)
+    o = {
+      '1'=>'пилот',
+      '2'=>'стюард',
+      '3'=>'танк',
+      '4'=>'второй пилот'
+    }
+    "<select name = '#{name}'>" +
+      o.map do |k, v|
+        "<option value = '#{k}'#{k.to_s == selected.to_s ? ' selected' : ''}>#{v}</option>"
+      end.join("\n") + 
+    "</select>"
+  end
+
 end

@@ -52,6 +52,7 @@ class Controller
 
   # Проверка прав доступа и, если нужно, перенаправление на ввод пароля
   def auth()
+    STDERR.puts @cgi.inspect
     if !@session['user'].nil? and @session['user'] != ''
       @user = @session['user']
     elsif @cgi.params.has_key?('user') and @cgi.params['user'][0] != '' and
