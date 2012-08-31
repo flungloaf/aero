@@ -23,6 +23,9 @@ count = 0
       <th>
         Должность
       </th>
+      <th>
+        Команда
+      </th>
     </tr>
   </thead>
   <tbody>
@@ -30,11 +33,12 @@ count = 0
       count += 1
 "
     <tr class = 'list#{count % 2}'>
-      <td>#{i[:last_name]}</tdi>
+      <td>#{i[:last_name]}</td>
       <td>#{i[:first_name]}</td>
       <td>#{i[:middle_name]}</td>
       <td>#{i[:age]}</td>
       <td>#{i.post}</td>
+      <td>#{i[:crew]}</td>
       <td>
         <a href = 'aero.rb?controller=#{@controller}&action=edit&id=#{i[:id]}'>Редактировать</a>
         <a href = 'aero.rb?controller=#{@controller}&action=destroy&id=#{i[:id]}'>Удалить</a>

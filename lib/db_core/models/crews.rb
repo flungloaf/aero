@@ -6,7 +6,7 @@ class Crews < Model
       connection.do("
 CREATE TABLE crews(
   id serial PRIMARY KEY,
-  name text NOT NULL,
+  name text NOT NULL UNIQUE,
   available_at timestamp,
   location text
 ) WITH OIDS

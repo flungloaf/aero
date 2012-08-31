@@ -1,5 +1,4 @@
 # coding: UTF-8
-needs_bus = @item[:needs_bus] == "true" || @item[:needs_bus] == true
 "
 <form name = 'aero' action = 'aero.rb' method = 'post'>
 <input type = 'hidden' name = 'controller' value = 'Staff'>
@@ -32,6 +31,10 @@ needs_bus = @item[:needs_bus] == "true" || @item[:needs_bus] == true
     <tr>
       <th>Должность:</th>
       <td>#{post_select('item[post]', "#{@item[:post]}")}</td>
+    </tr>
+    <tr>
+      <th>Экипаж:</th>
+      <td>#{crews_select('item[crew]', "#{@item[:crew]}")}</td>
     </tr>
   </tbody>
   <tfoot>

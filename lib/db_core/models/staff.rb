@@ -10,7 +10,8 @@ CREATE TABLE staff(
   middle_name text NOT NULL,
   last_name text NOT NULL,
   age integer,
-  post text
+  post text,
+  crew text
 ) WITH OIDS
         ")
       return true
@@ -27,6 +28,7 @@ CREATE TABLE staff(
       :last_name => nil,
       :age => nil,
       :post => nil,
+      :crew => nil,
     }
     attributes.each do |k, v|
       @attributes[k] = v
