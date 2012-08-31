@@ -9,7 +9,7 @@ end
 class CreateDatabase
   # Используемые модели
   MODELS = [Terminal, CheckInDesk, Company, Flight, 
-    CheckInDeskFlight, FlightTerminal, FlightStatus, User, Staff]
+    CheckInDeskFlight, FlightTerminal, FlightStatus, User, Staff, Crews]
   CREATE_OK = 1 + MODELS.size
 
   def initialize()

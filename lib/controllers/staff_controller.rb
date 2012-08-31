@@ -39,7 +39,7 @@ end
       else
         @item = Staff.new
         @header = 'Внесение новой информации о сотруднике'
-        @message = 'Информация о новом сотрдунике внесена в БД'
+        @message = 'Информация о новом сотруднике внесена в БД'
       end
       params.each do |k, v|
         @item[k] = v[0] if k != 'id' and v != '' and k!='code'
@@ -55,7 +55,7 @@ end
         end
       else
         @item = Staff.new
-        @header = 'Внесение новой информации о терминале'
+        @header = 'Внесение новой информации о сотруднике'
       end
     end
     render_template('edit')
