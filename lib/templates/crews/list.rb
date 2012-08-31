@@ -3,7 +3,7 @@ count = 0
 "
 <table class = 'list'>
   <caption>
-    Список летных экипажей
+    Список летных экипажей <br>
     <a href = 'aero.rb?controller=#{@controller}&action=edit'>Создать новую запись</a>
   </caption>
   <thead>
