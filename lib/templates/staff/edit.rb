@@ -34,7 +34,7 @@
     </tr>
     <tr>
       <th>Экипаж:</th>
-      <td>#{crews_select('item[crew]', "#{@item[:crew]}")}</td>
+      <td>#{crews_select('item[crew_id]', "#{@item[:crew_id]}")}</td>
     </tr>
   </tbody>
   <tfoot>

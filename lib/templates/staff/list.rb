@@ -38,7 +38,7 @@ count = 0
       <td>#{i[:middle_name]}</td>
       <td>#{i[:age]}</td>
       <td>#{i.post}</td>
-      <td>#{i[:crew]}</td>
+      <td>#{crews_puts(i[:crew_id])}</td>
       <td>
         <a href = 'aero.rb?controller=#{@controller}&action=edit&id=#{i[:id]}'>Редактировать</a>
         <a href = 'aero.rb?controller=#{@controller}&action=destroy&id=#{i[:id]}'>Удалить</a>
