@@ -41,6 +41,7 @@ class FlightsController < Controller
       params.each do |k, v|
         @item[k] = v[0] if k != 'id' and v != ''
       end
+      crew_update(params['crew_id'][0], params['arrival_date'][0], params['arrival_place'][0])
       @item.save(@db)
     else
       if @cgi.params.has_key?('id')
