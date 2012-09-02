@@ -44,7 +44,23 @@ end
       params.each do |k, v|
         @item[k] = v[0] if k != 'id' and v != '' and k!='code'
       end
-      @item.save(@db)
+      
+      res = []
+      if(params['post'][0] != 'cтюард')
+        @db.select_all("SELECT * FROM staff WHERE staff.crew_id = '#{params['crew_id'][0]}' AND staff.post = '#{params['post'][0]}'") do |r|
+          f = {}
+          r.column_names.each do |c|
+            f[c.to_sym] = r[c]
+          end
+          res << f
+        end
+      end
+      
+      if res.empty?
+        @item.save(@db)
+      else
+        @message = 'Должность уже занята'
+      end
     else
       if @cgi.params.has_key?('id')
         @item = Staff.find_first(@db, @cgi.params['id'][0])
