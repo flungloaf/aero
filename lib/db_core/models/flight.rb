@@ -20,8 +20,8 @@ CREATE TABLE flights(
   company_id integer REFERENCES companies(id) NOT NULL,
   terminal_id integer REFERENCES terminals(id),
   checkindesk_id integer REFERENCES check_in_desks(id),
-  crew_id integer REFERENCES crews(id),
-  status integer ,
+  crew_id integer,
+  status integer,
   is_departure boolean NOT NULL DEFAULT true
 ) WITH OIDS
         ")

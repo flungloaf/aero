@@ -61,6 +61,10 @@
     <th>Статус:</th>
       <td>#{status_select('item[status]', "#{@item[:status]}")}</td>
     </tr>
+    <tr>
+      <th>Экипаж:</th>
+      <td>#{crews_select('item[crew_id]', "#{@item[:crew_id]}")}</td>
+    </tr>
   </tbody>
   <tfoot>
     <tr>

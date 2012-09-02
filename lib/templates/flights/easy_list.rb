@@ -28,6 +28,9 @@ count = 0
       <th>
         Статус
       </th>
+      <th>
+        Команда
+      </th>
     </tr>
   </thead>
   <tbody>
@@ -41,7 +44,8 @@ count = 0
       <td>#{i.company_name()}</td>
       <td>#{terminals_puts(i[:terminal_id])}</td> 
       <td>#{checkindesks_puts(i[:checkindesk_id])}</td>
-      <td>#{i.status}</td>    
+      <td>#{i.status}</td>  
+      <td>#{crews_puts(i[:crew_id])}</td>  
     </tr>
 "
 end.join("\n") + "

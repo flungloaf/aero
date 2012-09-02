@@ -29,6 +29,9 @@ count = 0
         Статус
       </th>
       <th>
+        Экипаж
+      </th>
+      <th>
         Действия
       </th>
     </tr>
@@ -45,6 +48,7 @@ count = 0
       <td>#{terminals_puts(i[:terminal_id])}</td> 
       <td>#{checkindesks_puts(i[:checkindesk_id])}</td>
        <td>#{i.status}</td> 
+      <td>#{crews_puts(i[:crew_id])}</td>
       <td>
         <a href = 'aero.rb?controller=#{@controller}&action=edit&id=#{i[:id]}'>Редактировать</a>
         <a href = 'aero.rb?controller=#{@controller}&action=destroy&id=#{i[:id]}'>Удалить</a>
