@@ -41,8 +41,16 @@ class FlightsController < Controller
       params.each do |k, v|
         @item[k] = v[0] if k != 'id' and v != ''
       end
-      crew_update(params['crew_id'][0], params['arrival_date'][0], params['arrival_place'][0])
-      @item.save(@db)
+      if params['crew_id']
+        if crew_available_for_flight(params['crew_id'][0], params['departure_date'][0], params['departure_place'][0])
+          crew_update(params['crew_id'][0], params['arrival_date'][0], params['arrival_place'][0])
+          @item.save(@db)
+        else
+          @message = 'Летный экипаж недоступен'
+        end
+      else
+        @item.save(@db)
+      end
     else
       if @cgi.params.has_key?('id')
         @item = Flight.find_first(@db, @cgi.params['id'][0])

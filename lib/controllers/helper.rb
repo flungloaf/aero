@@ -115,4 +115,12 @@ def checkindesks_puts(selected)
     @db.select_one(*query)
   end
   
+  def crew_available_for_flight(crew_id, departure_date, departure_place)
+    query = ["SELECT available_at, location FROM crews WHERE crews.id = '#{crew_id}'"]
+    r = @db.select_one(*query)
+    return true if r[0].nil?
+    a = DateTime.parse(departure_date)
+    r[0] <= a and departure_place == r[1] ? true : false
+  end
+  
 end
