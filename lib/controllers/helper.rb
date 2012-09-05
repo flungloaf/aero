@@ -111,7 +111,9 @@ def checkindesks_puts(selected)
   end
   
   def crew_update(crew_id, arrival_date, arrival_place)
-    query = ["UPDATE crews SET available_at = '#{arrival_date}', location = '#{arrival_place}' WHERE crews.id = '#{crew_id}'"]
+    arrival_date = DateTime.parse(arrival_date)
+    arrival_date += Rational(1, 2)
+    query = ["UPDATE crews SET available_at = '#{arrival_date.strftime("%FT%T%:z")}', location = '#{arrival_place}' WHERE crews.id = '#{crew_id}'"]
     @db.select_one(*query)
   end
   
