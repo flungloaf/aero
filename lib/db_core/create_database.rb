@@ -39,13 +39,12 @@ class CreateDatabase
 
   # Удаление БД
   def drop_db()
-    #begin
+    begin
       @db_empty.do("DROP DATABASE aero")
-    #  return 1
-    #rescue DBI::ProgrammingError => e
-    #  return 0
-    #end
-    1
+      return 1
+    rescue DBI::ProgrammingError => e
+      return 0
+    end
   end
 
   # См. константу MODELS
