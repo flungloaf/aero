@@ -9,7 +9,7 @@ CREATE TABLE staff(
   first_name text NOT NULL,
   middle_name text NOT NULL,
   last_name text NOT NULL,
-  age integer,
+  age date,
   post text,
   crew_id integer
 ) WITH OIDS
@@ -59,6 +59,10 @@ CREATE TABLE staff(
     a[self[:post].to_s]
   end
 
+  def age
+    return (DateTime.now.to_date - Date.parse(self[:age].to_s)).to_i/365
+  end
+  
   def self.find_first(connection, id)
     id = id.to_i
     query = ["SELECT * FROM staff WHERE id = ?", id]

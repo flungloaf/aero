@@ -25,7 +25,7 @@
       <td><input type = 'text' name = 'item[middle_name]' value = '#{@item[:middle_name]}' size='60'></td>
     </tr>
     <tr>
-      <th>Возраст:</th>
+      <th>Дата рождения:</th>
       <td><input type = 'text' name = 'item[age]' value = '#{@item[:age]}' size='60'></td>
     </tr>
     <tr>

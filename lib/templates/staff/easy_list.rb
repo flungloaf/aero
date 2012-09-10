@@ -35,7 +35,7 @@ count = 0
       <td>#{i[:last_name]}</td>
       <td>#{i[:first_name]}</td>
       <td>#{i[:middle_name]}</td>
-      <td>#{i[:age]}</td>
+      <td>#{i.age}</td>
       <td>#{i.post}</td>
       <td>#{crews_puts(i[:crew_id])}</td>
     </tr>
