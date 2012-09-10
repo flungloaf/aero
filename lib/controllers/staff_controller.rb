@@ -46,8 +46,8 @@ end
       end
       
       res = []
-      if(params['crew_id'] && params['post'][0] != 'cтюард')
-        @db.select_all("SELECT * FROM staff WHERE staff.crew_id = '#{params['crew_id'][0]}' AND staff.post = '#{params['post'][0]}'") do |r|
+      if(params['crew_id'] && params['crew_id'][0] != '0' && params['post'][0] != 'cтюард')
+        @db.select_all("SELECT * FROM staff WHERE staff.crew_id = '#{params['crew_id'][0]}' AND staff.post = '#{params['post'][0]}' AND staff.id != '#{params['id'][0]}'") do |r|
           f = {}
           r.column_names.each do |c|
             f[c.to_sym] = r[c]

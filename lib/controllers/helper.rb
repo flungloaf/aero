@@ -91,7 +91,7 @@ def checkindesks_puts(selected)
   end
 
   def crews_select(name, selected = true)
-    "<select name = '#{name}'>" +
+    "<select name = '#{name}'>" + "<option value = '0'></option>" +
       Crews.find_all(@db).map do |c|
         if c[:id].to_i == selected.to_i
           "<option value = '#{c[:id]}' selected>#{c[:name]}</option>"
