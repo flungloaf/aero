@@ -46,7 +46,7 @@ end
       end
       
       res = []
-      if(params['post'][0] != 'cтюард')
+      if(params['crew_id'] && params['post'][0] != 'cтюард')
         @db.select_all("SELECT * FROM staff WHERE staff.crew_id = '#{params['crew_id'][0]}' AND staff.post = '#{params['post'][0]}'") do |r|
           f = {}
           r.column_names.each do |c|
