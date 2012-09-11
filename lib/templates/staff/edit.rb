@@ -26,7 +26,7 @@
     </tr>
     <tr>
       <th>Дата рождения:</th>
-      <td><input type = 'text' name = 'item[age]' value = '#{@item[:age]}' size='60'></td>
+      <td><input type = 'text' name = 'item[birth_date]' value = '#{@item[:birth_date]}' size='60'></td>
     </tr>
     <tr>
       <th>Должность:</th>

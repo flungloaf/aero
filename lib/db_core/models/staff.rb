@@ -9,7 +9,7 @@ CREATE TABLE staff(
   first_name text NOT NULL,
   middle_name text NOT NULL,
   last_name text NOT NULL,
-  age date,
+  birth_date date,
   post text,
   crew_id integer
 ) WITH OIDS
@@ -26,7 +26,7 @@ CREATE TABLE staff(
       :first_name => nil,
       :middle_name => nil,
       :last_name => nil,
-      :age => nil,
+      :birth_date => nil,
       :post => nil,
       :crew_id => nil,
     }
@@ -60,7 +60,7 @@ CREATE TABLE staff(
   end
 
   def age
-    return (DateTime.now.to_date - Date.parse(self[:age].to_s)).to_i/365
+    return (Date.parse(Time.new.strftime("%d-%m-%Y")) - Date.parse(self[:birth_date].to_s)).to_i/365
   end
   
   def self.find_first(connection, id)
