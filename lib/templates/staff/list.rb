@@ -26,6 +26,9 @@ count = 0
       <th>
         Команда
       </th>
+      <th>
+        Действия
+      </th>
     </tr>
   </thead>
   <tbody>
