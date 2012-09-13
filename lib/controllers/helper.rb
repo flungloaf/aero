@@ -120,9 +120,12 @@ def checkindesks_puts(selected)
   def crew_available_for_flight(crew_id, departure_date, departure_place)
     query = ["SELECT available_at, location FROM crews WHERE crews.id = '#{crew_id}'"]
     r = @db.select_one(*query)
-    return true if r[0].nil?
     a = DateTime.parse(departure_date)
-    r[0] <= a and departure_place == r[1] ? true : false
+    c1 = r[0].nil? or (r[0] <= a and departure_place == r[1]) ? true : false
+    query = ["SELECT post FROM staff WHERE staff.crew_id = '#{crew_id}'"]
+    r = @db.select_all(*query).flatten
+    c2 = r.count('1') == 1 && r.count('2') > 0 && r.count('3') == 1 && r.count('4') == 1
+    return c1 && c2
   end
   
 end
