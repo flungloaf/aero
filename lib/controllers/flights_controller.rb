@@ -41,7 +41,7 @@ class FlightsController < Controller
       params.each do |k, v|
         @item[k] = v[0] if k != 'id' and v != ''
       end
-      if params['crew_id']
+      if params['crew_id'] && params['crew_id'][0] != '0'
         if crew_available_for_flight(params['crew_id'][0], params['departure_date'][0], params['departure_place'][0])
           crew_update(params['crew_id'][0], params['arrival_date'][0], params['arrival_place'][0])
           @item.save(@db)
